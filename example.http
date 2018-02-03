@@ -1,2 +1,6 @@
 GET http://localhost:3000/products/
 Content-Type: application/json
+
+###
+POST http://localhost:3000/orders/
+Content-Type: application/json
