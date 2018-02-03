@@ -1,10 +1,16 @@
 import express from 'express';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+
 import { productRoutes } from './api/routes/products';
 import { orderRoutes } from './api/routes/orders';
-import morgan from 'morgan';
+
 export const app = express();
 
 app.use(morgan('dev'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
