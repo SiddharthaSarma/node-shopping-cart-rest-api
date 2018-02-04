@@ -51,3 +51,15 @@ productRoutes.get('/:productId', (req, res, send) => {
       res.status(500).json({ error: err });
     });
 });
+
+productRoutes.get('/:productId', (req, res, next) => {
+  const productId = req.params.productId;
+  Product.findOneAndRemove(product)
+    .then(msg => {
+      res.status(200).json(msg);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
