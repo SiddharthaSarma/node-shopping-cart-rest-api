@@ -1,9 +1,12 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 
 import { productRoutes } from './api/routes/products';
 import { orderRoutes } from './api/routes/orders';
+
+mongoose.connect('mongodb://localhost/node-shop');
 
 export const app = express();
 
@@ -23,6 +26,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH');
     return res.send(200).json({});
   }
+  next();
 });
 
 app.use('/products', productRoutes);
