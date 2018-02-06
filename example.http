@@ -10,6 +10,9 @@ content-type: application/json
     "price": 100
 }
 
+### 
+DELETE http://localhost:3000/products/5a768220cd36ae46f4bfd107
+
 ###
 GET http://localhost:3000/products/5a76804f2ffd6f43e84b2938
 Content-Type: application/json
