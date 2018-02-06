@@ -52,9 +52,9 @@ productRoutes.get('/:productId', (req, res, send) => {
     });
 });
 
-productRoutes.get('/:productId', (req, res, next) => {
+productRoutes.delete('/:productId', (req, res, next) => {
   const productId = req.params.productId;
-  Product.findOneAndRemove(product)
+  Product.findOneAndRemove(productId)
     .then(msg => {
       res.status(200).json(msg);
     })
